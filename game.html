@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
-
+<style>
+   .title{
+      font-size: 300%;
+      background: -webkit-linear-gradient(#6dcff6, #00e51f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+</style>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -8,33 +15,64 @@
         2020: The Game
     </title>
     <link href="game.css" rel="stylesheet" type="text/css"/>
-    <h1> 2020: The Game </h1>
+    <h1 class=title> 2020: The Game </h1>
   </head>
 
 <script src="game.js"></script>
     
     <div id="appraisal">
-    <div id="attack">Attack: <div class="bar"><div id="attack_bar"></div></div></div>
-    <div id="defense">Defense: <div class="bar"><div id="defense_bar"></div></div></div>
-    <div id="hp"> HP: <div class="bar"><div id="hp_bar"></div></div></div>
-    <div id="white_bars"></div>
+      <div id="attack">Attack: <div class="bar"><div id="attack_bar"></div></div></div>
+      <div id="defense">Defense: <div class="bar"><div id="defense_bar"></div></div></div>
+      <div id="hp"> HP: <div class="bar"><div id="hp_bar"></div></div></div>
+      <div id="white_bars"></div> <div id="white_bars2"></div>
     </div>
 
-    <div>
-        <button class="attack" onclick="increaseAttack(1)"> 
-        <button class="defense" onclick="increaseDefense(1)"> 
-        <button class="hp" onclick="increaseHP(1)">
-        <button class="sanityButton" onclick="decreaseSanity(37.9)">
-    </div>
+    <center> <div style="background-color:white; width:900px; height:600px;">
+      <iframe src="trial.html" frameborder="0" width="900px" height="600px"></iframe>
+    </div> </center>
 
     <div class="progress2 progress" id="sanity" data-progress-percent="100">
         <div class="progress-bar progress" id="sanityBar"></div>
     </div>
+    <p class="rotated"> Your Current </p>
+    <p class="rotated2"> Sanity </p>
+    <!-- Shop Image -->
+    <a class="store" href="#storeScreen"><img src="https://cdn.discordapp.com/attachments/849316750683406396/853201679293612032/Untitled-1.png"> </a>
+    <div id="storeScreen" class="overlay">
+      <div class="popup">
+        <div style="width:200px; height:200px;">
+          <h1 style="margin-left:225%; color:black; margin-bottom:1px;"> SHOP </h1>  
+          <table style="width:1050px">
+              <tr>
+                <td> <div id="boosters"> <h2> ATK </h2> </div></td>
+                <td> <div id="boosters"> <h2> DEF </h2> </div></td>  
+                <td> <div id="boosters"> <h2> HP </h2> </div> </td>
+              </tr>
+              <tr>
+                <td style="width:33%">
+                  <!-- Attack Image -->
+                  <img src="https://cdn.discordapp.com/attachments/849316750683406396/853179405474988052/Brain.png">
+                </td>
+                <td style="width:33%">
+                  <!-- Defense Image -->
+                  <img src="https://media.discordapp.net/attachments/849316750683406396/853152468049592320/defense.png?width=704&height=704">
+                </td>
+                <td style="width:33%">
+                  <!-- Health Image -->
+                  <img src="https://media.discordapp.net/attachments/849316750683406396/853138933398503434/Icon.png?width=704&height=704">
+                </td>
+              </tr>
+              <tr>
+                <td> <a id="purchase" href="#storeScreen" onclick="increaseAttack(1)"> Purchase <b>brain power</b> with 15% sanity. </a> </td> 
+                <td> <a id="purchase" href="#storeScreen" onclick="increaseDefense(1)"> Purchase <b>face mask</b> with 15% sanity. </a> </td>
+                <td> <a id="purchase" href="#storeScreen" onclick="increaseHP(1)"> Purchase <b>hand sanitizer</b> with 15% sanity. </a> </td>
+              </tr>
+            </table>
+        </div>
+        <a id = "Not_Link" class="close" href="#">&times;</a>
+      </div>
+    </div>
     
-    <button class="option" onclick="sig1()">Start at Home</button>
-    <button class="option" onclick="sig2()">Start at Work</button>
-
-    <span class="store"></span>
 </body>
 
 </html>

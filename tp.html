@@ -1,22 +1,48 @@
 <!DOCTYPE HTML 5.13.14>
 <html>
-<head>
-<link type="text/css" rel="stylesheet" 
-  href="tp.css">
-  <title>SHOPPING</title>
-</head>
+<style>
+    .title{
+       font-size: 300%;
+       background: -webkit-linear-gradient(#6dcff6, #00e51f);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+     }
+ </style>
+   <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width">
+     <title>
+         2020: The Game
+     </title>
+     <link href="tp.css" rel="stylesheet" type="text/css"/>
+     <h1 class=title> 2020: The Game </h1>
+   </head>
 <body>
-    <h1 style="text-align:center">Toilet Paper Mania</h1>
-    <h1 id="score" style="text-align:center">Toilet Paper : 0</h1>
+    <h2 id="score" style="text-align:center">Toilet Paper : 0</h2>
+    <div id="appraisal">
+        <div id="attack">Attack: <div class="bar"><div id="attack_bar"></div></div></div>
+        <div id="defense">Defense: <div class="bar"><div id="defense_bar"></div></div></div>
+        <div id="hp"> HP: <div class="bar"><div id="hp_bar"></div></div></div>
+        <div id="white_bars"></div> <div id="white_bars2"></div>
+      </div>
+    <div class="progress2 progress" id="sanity" data-progress-percent="100">
+        <div class="progress-bar progress" id="sanityBar"></div>
+    </div>
+    <p class="rotated"> Your Current </p>
+    <p class="rotated2"> Sanity </p>
 <center>
 <div id="path" class="path">
-	<div id="block" class="block"></div>
-    <div id="brick" class="brick"></div>
+	<div id="block" class="block">
+        <img src="https://cdn.discordapp.com/attachments/849316750683406396/853157243146862662/TP.png" width="60" height="60" style="margin-left:-11px; margin-top:-5px">
+    </div>
+    <div id="brick" class="brick">
+        <img src="https://cdn.discordapp.com/attachments/849316750683406396/853164508297560084/Cart.png" width="150" height="150" style="margin-left:-16px; margin-top:-61px">
+    </div>
     <div id="gameover"></div>
 </div>
 </center>
 <center>
-    <button onclick='start()'><b>Start Game</b></button>
+    <button id="startButton" onclick='start()'><b>Start Game</b></button>
 </center>
 <script src="tp.js"></script>
 </body>

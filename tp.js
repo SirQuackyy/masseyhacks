@@ -3,17 +3,72 @@ var block     = document.getElementById('block'),
     path      = document.getElementById('path'),
     gameover  = document.getElementById('gameover')
 var blockRect = block.getBoundingClientRect(),
-    brickRect = brick.getBoundingClientRect()
+    brickRect = brick.getBoundingClientRect(),
+    pathRect  = path.getBoundingClientRect()
 var left = 10;
 brick.style.left = 10;
-brick.style.top = 600;
+brick.style.top = Math.floor(screen.height * 0.69 - 170);
 block.style.top = 10;
-block.style.left = Math.floor((Math.random() * (0.9 * screen.width - 5)) + 5);
-block.style.backgroundColor = "purple";
+block.style.left = Math.floor((Math.random() * (0.6 * screen.width - 15)) + 5);
 gameover.style.top = 150;
 gameover.style.left = 150
 
-var speed = 8;
+var speed = 9;
+
+function getParams() {
+    var idx = document.URL.indexOf('?');
+    var params = new Array();
+    if (idx != -1) {
+        var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+        for (var i=0; i<pairs.length; i++) {
+            nameVal = pairs[i].split('=');
+            params[nameVal[0]] = nameVal[1];
+        }
+    }
+    return params;
+}
+
+var params = getParams();
+
+if(params["atk"]){
+    increaseAttack(params["atk"])
+}
+if(params["def"]){
+    increaseDefense(params["def"])
+}
+if(params["hp"]){
+    increaseHP(params["hp"])
+}
+if(params["sanity"]){
+    decreaseSanity(params["sanity"] * 3.79)
+}
+
+function increaseAttack(addValue) {
+    attack = addValue;
+    document.getElementById('attack_bar').style.color = "#ec008c";
+    document.getElementById('attack_bar').style.width = attack * 40 + "px";
+}
+  
+var defense = 0;
+function increaseDefense(addValue) {
+    defense = addValue;
+    document.getElementById('defense_bar').style.color = "#0093dd";
+    document.getElementById('defense_bar').style.width = defense * 40 + "px";
+}
+  
+var hp = 0;
+function increaseHP(addValue) {
+    hp = addValue;
+    document.getElementById('hp_bar').style.color = "#00e51f";
+    document.getElementById('hp_bar').style.width = hp * 40 + "px";
+}
+
+var sanity = 379;
+function decreaseSanity(removeValue) {
+    sanity = removeValue;
+    console.log(sanity);
+    document.getElementById('sanityBar').style.width = 379 - sanity + "px";
+}
 
 //Keys
 document.onkeydown = function() {
@@ -56,16 +111,15 @@ var RIGHT = false;
 
 function move() {
     if(started){
-        if(LEFT) {
+        brickRect = brick.getBoundingClientRect()
+        if(LEFT && brickRect.left >= pathRect.left) {
             left -= speed;
         }
-        if(RIGHT) {
+        if(RIGHT && brickRect.right <= pathRect.right) {
             left += speed;
         }
     }
 }
-
-var colors = ['pink', 'blue', 'purple', 'green', 'grey', 'yellow', 'orange']
 
 var started = false;
 
@@ -83,15 +137,16 @@ function movedown() {
         block.style.top = top + 'px'
         var blockRect = block.getBoundingClientRect(),
             brickRect = brick.getBoundingClientRect()
-        if (block.style.top === '595px' && blockRect.right > brickRect.left && blockRect.left < brickRect.right) {
+        if (block.style.top == brick.style.top && blockRect.right >= brickRect.left && blockRect.left <= brickRect.right) {
             clearInterval(id)
             updateScore()
             block.style.top = 10;
-            block.style.left = Math.floor((Math.random() * 390) + 5);
-            block.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+            block.style.left = Math.floor((Math.random() * (0.6 * screen.width - 15)) + 5);
             movedown()
         }
         if (top == 650) {
+            brick.style.left = left + 'px'
+            document.getElementById("startButton").style.display = 'block';
             clearInterval(id);
             started = false;
             document.getElementById("gameover").innerHTML="GAME OVER";
@@ -144,14 +199,15 @@ function handleTouchMove(evt) {
 setInterval (update, 10);
 
 function reset() {
+    document.getElementById("startButton").style.display = 'none';
     document.getElementById("gameover").innerHTML="";
+    left = 0;
     score = 0
-    document.getElementById("score").innerHTML=score;
+    document.getElementById("score").innerHTML="Toilet Paper: " + score;
     
 }
 
 function update() {
     move();
     brick.style.left = left + 'px'
-    console.log(brick.style.left)
 }

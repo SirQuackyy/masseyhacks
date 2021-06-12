@@ -1,24 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 .path {
 	position: relative;
 	overflow: hidden;
-	width: 90%;
+	width: 60%;
 	height: 69%;
     margin-left: 20px;
     margin-bottom: 1px;
 	border: 10px solid #000;
 }
 
+body {
+	font-family: Montserrat, sans-serif;
+	font-size: 16px;
+	letter-spacing: 0.2px;
+	text-align: center;
+	height: 100vh;
+    background: #cff1ff;
+    color: black;
+}
+
 h1 {
-    font-size: 20px;
-    font-family: Verdana;
-    text-align: left;
-    padding-left: 10px;
-    padding-top: 5px;
+    font-size: 60px;
+    font-weight: 5px;
+    font-family: Montserrat, sans-serif;
+    text-align: center;
 }
 
 h2 {
-    font-size: 16px;
-    font-family: Verdana;
+    font-size: 25px;
+    font-family: Montserrat, sans-serif;
     text-align: left;  
 }
 
@@ -29,8 +40,8 @@ td {
 }
 .block {
 	position: absolute;
-	width: 10px;
-	height: 10px;
+	width: 40px;
+	height: 50px;
 	margin: 0px;
 	text-align: center;
 	color: #fff;
@@ -38,10 +49,71 @@ td {
 	white-space: nowrap;
 }
 
+#appraisal {
+	cursor: pointer;
+	position: absolute;
+    right: 0px;
+    top: -25px;
+	user-select: none;
+	border-radius: 5px;
+	padding: 50px 30px 10px 30px;
+	width: 200px;
+	text-align: left;
+	background: #cff1ff;
+
+}
+
+#white_bars {
+	border: 2px solid #cff1ff;
+	position: absolute;
+	width: 40px;
+	height: 150px;
+	top: 70px;
+	left: 68px;
+}
+
+#white_bars2 {
+	border: 2px solid #cff1ff;
+	position: absolute;
+	width: 40px;
+	height: 190px;
+	top: 0;
+	left: 148px;
+}
+
+.bar {
+	width: 200px;
+	background: white;
+	margin: 5px 0 15px 0;
+}
+
+#hp_bar { 
+  margin-bottom: 5px; 
+  color: white;
+}
+
+#attack_bar { 
+  margin-bottom: 5px; 
+  color: white;
+}
+
+#defense_bar { 
+  margin-bottom: 5px; 
+  color: white;
+}
+
+.bar, .bar div {
+	height: 10px;
+	border-radius: 10px;
+}
+
+.bar div {
+	background: currentColor;
+}
+
 .brick {
    	position: relative;
-	background-color: turquoise;
-	width: 60px;
+	width: 120px;
 	height: 10px;
 	margin: 0px;
 	text-align: center;
@@ -53,7 +125,7 @@ td {
 button {
     height: 60px;
     width: 200px;
-    margin-top: 50px;
+    margin-top: 20px;
     font-size: 15px;
     background-color: lightgreen;
 }
@@ -77,4 +149,43 @@ button {
 #gameover {
     margin: 50;
     font-size: 50px;
+}
+
+.progress {
+    width: 450px;
+    height: 50px;
+}
+
+.progress2 {
+    background: #ffe799;
+    color: white;
+    position: absolute;
+    bottom:300px;
+    left:-100px;
+    border-radius: 10px;
+    transform: rotate(90deg);
+}
+
+.progress-bar {
+    background: #ddd;
+	width: 0px;
+    left: 0;
+    position: absolute;
+    top: 0;
+}   
+
+.rotated {
+    font-family: Montserrat, sans-serif;
+    font-size: 15px;
+    position:absolute;
+    bottom:50px;
+    left:80px;
+}
+
+.rotated2 {
+    font-family: Montserrat, sans-serif;
+    font-size: 15px;
+    position:absolute;
+    bottom:30px;
+    left:100px;
 }

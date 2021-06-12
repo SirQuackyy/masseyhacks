@@ -4,16 +4,18 @@ h1 {
     font-size: 60px;
     font-weight: 5px;
     font-family: Montserrat, sans-serif;
+    text-align: center;
 }
 
 body {
-	font-family: sans-serif;
+	font-family: Montserrat, sans-serif;
 	font-size: 16px;
 	letter-spacing: 0.2px;
 	text-align: center;
 	height: 100vh;
-    background: black;
-    color: white;
+    background: #cff1ff;
+    color: black;
+    margin-right: 5.5%;
 }
 
 #appraisal {
@@ -26,17 +28,26 @@ body {
 	padding: 50px 30px 10px 30px;
 	width: 200px;
 	text-align: left;
-	background: black;
+	background: #cff1ff;
 
 }
 
 #white_bars {
-	border: 2px solid black;
+	border: 2px solid #cff1ff;
 	position: absolute;
-	width: 65px;
+	width: 40px;
+	height: 150px;
+	top: 70px;
+	left: 68px;
+}
+
+#white_bars2 {
+	border: 2px solid #cff1ff;
+	position: absolute;
+	width: 40px;
 	height: 190px;
 	top: 0;
-	left: 97px;
+	left: 148px;
 }
 
 .bar {
@@ -70,20 +81,18 @@ body {
 }
 
 .progress {
-    width: 30%;
-    height: 15px;
+    width: 450px;
+    height: 50px;
 }
 
 .progress2 {
-    background: #f80;
-    margin: 20px 0;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 5px; 
+    background: #ffe799;
     color: white;
+    position: absolute;
+    bottom:300px;
+    left:-100px;
+    border-radius: 10px;
     transform: rotate(90deg);
-    margin-top: 18%;
-    margin-left: -10%;
 }
 
 .progress-bar {
@@ -92,6 +101,22 @@ body {
     left: 0;
     position: absolute;
     top: 0;
+}   
+
+.rotated {
+    font-family: Montserrat, sans-serif;
+    font-size: 15px;
+    position:absolute;
+    bottom:50px;
+    left:80px;
+}
+
+.rotated2 {
+    font-family: Montserrat, sans-serif;
+    font-size: 15px;
+    position:absolute;
+    bottom:30px;
+    left:100px;
 }
 
 .option {
@@ -119,9 +144,96 @@ body {
 }
 
 .store {
-    height: 350px;
-    width: 350px;
-    background-image: url(https://cdn.discordapp.com/attachments/841113153944420363/853137408614989834/BLUE-CIRCLE.png);
+    height: 75px;
+    width: 75px;
+    border-radius: 50%; 
+    background-color: white;
     display: inline-block;
     position: absolute;
-  }
+    bottom: 30px;
+    right: 30px;
+}
+
+  /* POPUP */
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-right: 20px;
+}
+
+.button {
+    font-size:1em; padding:10px; color: white; 
+    border: 2px solid #f2accb;  border-radius: 20px/50px;
+    text-decoration:none; cursor:pointer; transition:all 0.3s ease-out;
+    width: 20%;
+    margin-left: 20%;
+}
+  
+.button:hover {
+    background-color: #f2accb;
+}
+  
+.overlay {
+  position:fixed; top:0; bottom:0; right:0; left:0; 
+  background: rgba(0, 0, 0,0.7); transition:opacity 500ms;
+  visibility:hidden; opacity:0; 
+}
+
+.overlay:target {
+  visibility:visible; opacity:1;
+}
+
+.popup {
+  margin: 40px auto; padding:20px; background:#fff799;
+  border-radius:5px; width:1060px; height:85%; transition:all 2s ease-in-out; 
+  text-align: center;
+}
+
+.popup p#A {
+  margin-top:0; color:white; font-size:20px; text-align: center; 
+}
+
+.popup .close#Not_Link {
+  position:absolute; margin:0px; float:right; top:12px; right:12px; padding:0px 6px;
+  font-size:20px; text-decoration:none; color:black;
+  background-color:#fff799; border:none;
+}
+
+.popup .close:hover {
+  background-color:black; color: #fff799;
+}
+
+.popup .content {
+  max-height:30%; overflow:auto; padding: 20px;
+}
+
+#purchase {
+  background-color: #ffc628;
+  color: black;
+  padding: 20px 30% 20px 30%; margin:5px 5px 5px 5px;
+  display: inline-block;
+  text-decoration:none; border:black 1px solid;
+}
+
+#purchase:hover, a:active {
+  background-color: #9fe4ff; color: black;
+  border:#9fe4ff 1px solid;
+}
+
+#purchase:visited{
+  color: rgb(1, 29, 61); border:rgb(233, 233, 233) 1px solid;
+}
+
+#boosters {
+  font-family:Montserrat,sans-serif;
+  font-size: 20px;
+  font-weight: 20px;
+  color:black;
+  background-color: #ffc628;
+}
+
+#block_container {
+    display: inline-block;
+    justify-content: center;
+}
