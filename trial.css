@@ -11,55 +11,43 @@
     font-family: Raleway;
 }
 
-body {
-  background-image: url();
+.loseSanity {
+  font-size:100px;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+  animation-name:blinker;
+  animation: blinker 1s linear infinite;
+  animation-iteration-count: 2;
+  animation-duration: 0.5s;
 }
 
-.side-links {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} 
+
+@keyframes blinker {
+  49% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
-.side-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  margin-bottom: 10px;
-  margin-right: 10%;
-  margin-left: 10%;
-  color: white;
-  width: 180px;
-  padding: 10px 0;
-  border-radius: 10px;
-}
+@keyframes fadeOutOpacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+} 
 
-.btn {
-  font-size:1em; 
-  padding:10px; 
-  background-color: white; 
-  border: 2px solid #f67eb4;  
-  border-radius: 20px/50px;
-  text-decoration:none; 
-  cursor:pointer; 
-  transition:all 0.3s ease-out;
-  width: 40%; 
-  color: #f67eb4;
-  margin-left:20px;
-  margin-top: 40%;
-}
-
-.btn:hover {
-  background-color: #f2accb;
-  color:white;
-}
-
-#text {
-  font-size: 25px;
-  color: black;
-  margin: 50px;
-  /* background: -webkit-linear-gradient(#9fe4ff, #ec008c); */
-  /* -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
-}

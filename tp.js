@@ -43,20 +43,21 @@ if(params["sanity"]){
     decreaseSanity(params["sanity"] * 3.79)
 }
 
+var attack = params["atk"];
 function increaseAttack(addValue) {
     attack = addValue;
     document.getElementById('attack_bar').style.color = "#ec008c";
     document.getElementById('attack_bar').style.width = attack * 40 + "px";
 }
   
-var defense = 0;
+var defense = params["def"];
 function increaseDefense(addValue) {
     defense = addValue;
     document.getElementById('defense_bar').style.color = "#0093dd";
     document.getElementById('defense_bar').style.width = defense * 40 + "px";
 }
   
-var hp = 0;
+var hp = params["hp"];
 function increaseHP(addValue) {
     hp = addValue;
     document.getElementById('hp_bar').style.color = "#00e51f";
@@ -130,6 +131,7 @@ function start() {
     movedown();
 }
 
+var score = 0
 function movedown() {
     var top = 0
     function frame() {
@@ -142,20 +144,32 @@ function movedown() {
             updateScore()
             block.style.top = 10;
             block.style.left = Math.floor((Math.random() * (0.6 * screen.width - 15)) + 5);
-            movedown()
+            if(score >= 50){
+                
+            } else {
+                movedown()
+            }
         }
         if (top == 650) {
             brick.style.left = left + 'px'
-            document.getElementById("startButton").style.display = 'block';
-            clearInterval(id);
-            started = false;
-            document.getElementById("gameover").innerHTML="GAME OVER";
+            if(hp < 2){
+                increaseHP(hp - 1);
+                document.getElementById("startButton").style.display = 'block';
+                clearInterval(id);
+                started = false;
+                document.getElementById("gameover").innerHTML="GAME OVER";   
+            } else {
+                increaseHP(hp - 1);
+                clearInterval(id)
+                block.style.top = 10;
+                block.style.left = Math.floor((Math.random() * (0.6 * screen.width - 15)) + 5);
+                movedown()
+            }
         }
     }
     var id = setInterval(frame, 2)
 }
 
-var score = 0
 function updateScore() {
     score++
     document.getElementById("score").innerHTML="Toilet Paper: " + score;

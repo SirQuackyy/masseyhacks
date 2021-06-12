@@ -167,7 +167,6 @@ img {
     border: 2px solid #f2accb;  border-radius: 20px/50px;
     text-decoration:none; cursor:pointer; transition:all 0.3s ease-out;
     width: 20%;
-    margin-left: 20%;
 }
   
 .button:hover {
@@ -236,4 +235,65 @@ img {
 #block_container {
     display: inline-block;
     justify-content: center;
+}
+
+.btn {
+  font-size:1em; 
+  padding:10px; 
+  background-color: white; 
+  border: 2px solid #f67eb4;  
+  border-radius: 20px/50px;
+  text-decoration:none; 
+  cursor:pointer; 
+  transition:all 0.3s ease-out;
+  width: 40%; 
+  color: #f67eb4;
+  margin-left:20px;
+  margin-top: 40%;
+}
+
+.btn:hover {
+  background-color: #f2accb;
+  color:white;
+}
+
+#text {
+  font-size: 25px;
+  color: black;
+  padding: 40px 200px;
+}
+
+.loseSanity {
+  font-size:100px;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+  animation-name:blinker;
+  animation: blinker 1s linear infinite;
+  animation-iteration-count: 2;
+  animation-duration: 0.5s;
+  position:absolute;
+  z-index:10;
+  bottom:auto;
+  left:auto;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} 
+
+@keyframes blinker {
+  49% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
 }
