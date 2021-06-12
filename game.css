@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+h1 {
+    font-size: 60px;
+    font-weight: 5px;
+    font-family: Montserrat, sans-serif;
+}
+
+body {
+	font-family: sans-serif;
+	font-size: 16px;
+	letter-spacing: 0.2px;
+	text-align: center;
+	height: 100vh;
+    background: black;
+    color: white;
+}
+
+#appraisal {
+	cursor: pointer;
+	position: absolute;
+    right: 0px;
+    top: -25px;
+	user-select: none;
+	border-radius: 5px;
+	padding: 50px 30px 10px 30px;
+	width: 200px;
+	text-align: left;
+	background: black;
+
+}
+
+#white_bars {
+	border: 2px solid black;
+	position: absolute;
+	width: 65px;
+	height: 190px;
+	top: 0;
+	left: 97px;
+}
+
+.bar {
+	width: 200px;
+	background: white;
+	margin: 5px 0 15px 0;
+}
+
+#hp_bar { 
+  margin-bottom: 5px; 
+  color: white;
+}
+
+#attack_bar { 
+  margin-bottom: 5px; 
+  color: white;
+}
+
+#defense_bar { 
+  margin-bottom: 5px; 
+  color: white;
+}
+
+.bar, .bar div {
+	height: 10px;
+	border-radius: 10px;
+}
+
+.bar div {
+	background: currentColor;
+}
+
+.progress {
+    width: 30%;
+    height: 15px;
+}
+
+.progress2 {
+    background: #f80;
+    margin: 20px 0;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 5px; 
+    color: white;
+    transform: rotate(90deg);
+    margin-top: 18%;
+    margin-left: -10%;
+}
+
+.progress-bar {
+    background: #ddd;
+	width: 0px;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.option {
+    font-size: 35px; 
+    color:black ;
+    margin-right: 10%;
+    margin-left: 10%;
+    font-family: Montserrat, sans-serif;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: antiquewhite;
+}
+
+.option:hover {
+    font-size: 35px; 
+    color:antiquewhite ;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: black;
+}
+
+.intro{
+    font-size: 30px;
+    color: aqua;
+}
+
+.store {
+    height: 350px;
+    width: 350px;
+    background-image: url(https://cdn.discordapp.com/attachments/841113153944420363/853137408614989834/BLUE-CIRCLE.png);
+    display: inline-block;
+    position: absolute;
+  }

@@ -1,0 +1,80 @@
+.path {
+	position: relative;
+	overflow: hidden;
+	width: 90%;
+	height: 69%;
+    margin-left: 20px;
+    margin-bottom: 1px;
+	border: 10px solid #000;
+}
+
+h1 {
+    font-size: 20px;
+    font-family: Verdana;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+h2 {
+    font-size: 16px;
+    font-family: Verdana;
+    text-align: left;  
+}
+
+td {
+    padding: 5px;
+    width: 10px;
+    text-align: center;
+}
+.block {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	margin: 0px;
+	text-align: center;
+	color: #fff;
+	font-size: 10px;
+	white-space: nowrap;
+}
+
+.brick {
+   	position: relative;
+	background-color: turquoise;
+	width: 60px;
+	height: 10px;
+	margin: 0px;
+	text-align: center;
+	color: #fff;
+	font-size: 10px;
+	white-space: nowrap; 
+}
+
+button {
+    height: 60px;
+    width: 200px;
+    margin-top: 50px;
+    font-size: 15px;
+    background-color: lightgreen;
+}
+
+#reset {
+    background-color: red;
+}
+
+#left {
+    background-color: pink;
+}
+
+#right {
+    background-color: orange;
+}
+
+#score {
+    color: black;
+}
+
+#gameover {
+    margin: 50;
+    font-size: 50px;
+}
