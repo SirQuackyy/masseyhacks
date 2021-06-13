@@ -204,6 +204,7 @@ function startAgain() {
     started = true;
     closePopup();
     reset();
+    movedown();
 }
 
 function gameOverFunc() {
@@ -231,7 +232,7 @@ function closePopup() {
 }
 
 function continueGame() {
-    window.location.href = `/game.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}&pos=15`
+    window.location.href = `/cutscene.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}`
 }
 
 var score = 0
@@ -247,7 +248,7 @@ function movedown() {
             updateScore()
             block.style.top = 10;
             block.style.left = Math.floor((Math.random() * (0.6 * screen.width - 55)) + 5);
-            if(score >= 50){
+            if(score >= 30){
                 popup = document.getElementById("winner");
                 openPopup();
             } else {

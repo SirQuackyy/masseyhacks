@@ -160,7 +160,7 @@ function showTextNode(textNodeIndex) {
     document.getElementById("sanityText").style.visibility="visible";
     document.getElementById("description").innerHTML = textNode.description
     document.getElementById("description").style.visibility="visible"
-    setTimeout(hideSanity, 4000);
+    setTimeout(hideSanity, 7000);
     if(sanity <= -72.01){
       popup = document.getElementById("gameover");
       openPopup();
@@ -171,7 +171,7 @@ function showTextNode(textNodeIndex) {
     document.getElementById("sanityText").style.visibility="visible";
     document.getElementById("description").innerHTML = textNode.description
     document.getElementById("description").style.visibility="visible"
-    setTimeout(hideSanity, 3000);
+    setTimeout(hideSanity, 7000);
   }
   textElement.innerText = textNode.text
   backImg.src = textNode.background
@@ -319,7 +319,7 @@ const textNodes = [
   {
     id: 7,
     text: 'Spring break is approaching fast! What do you plan to do this year?',
-    background:'https://i.stack.imgur.com/y9DpT.jpg',
+    background:'https://cdn.discordapp.com/attachments/849316750683406396/853510612927381524/SB.png',
     sanity: 15,
     direction: "positive",
     description: "You are totally excited for spring break! You can't wait.",
@@ -336,38 +336,6 @@ const textNodes = [
   },
   {
     id: 8,
-    text: 'What kind of trip are you looking forward to during spring break?',
-    background:'https://i.stack.imgur.com/y9DpT.jpg',
-    sanity: 0,
-    direction: "positive",
-    description: "[stable sanity]",
-    options: [
-      {
-        text: 'Plan to join your friends on a field trip to LA for three days.',
-        nextText: 9
-      },
-      {
-        text: 'Plan for a family trip to LA for the entire week.',
-        nextText: 10
-      },
-    ]
-  },
-  {
-    id: 9,
-    text: 'A sudden lockdown occurs due to increasing cases of COVID-19 globally. Your school cancels the trip due to district guidelines.',
-    background:'https://cdn.discordapp.com/attachments/849316750683406396/853440183852072960/LA.png',
-    sanity: 15,
-    direction: "negative",
-    description: "Quarantine is here, and you are not excited.",
-    options: [
-      {
-        text: 'Continue >>',
-        nextText: 12
-      }
-    ]
-  },
-  {
-    id: 10,
     text: 'A sudden lockdown occurs due to increasing cases of COVID-19 globally. Do you want to:',
     background:'https://cdn.discordapp.com/attachments/849316750683406396/853440183852072960/LA.png',
     sanity: 15,
@@ -387,7 +355,7 @@ const textNodes = [
   {
     id: 11,
     text: 'On your way back from the trip, your parents tell you to help them do some shopping to stock up for the next few weeks.',
-    background:'https://i.stack.imgur.com/y9DpT.jpg',
+    background:'https://cdn.discordapp.com/attachments/849316750683406396/853525647494217759/CS2.png',
     sanity: 5,
     direction: "positive",
     description: "The trip is scenic and quite enjoyable, although you didn't get to do more.",

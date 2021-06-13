@@ -42,6 +42,13 @@
             <button id="restart" class="start-button" onclick='victory()'>Continue</button>
         </div>
     </div>
+    <div id="popup" class="popup-box">
+      <div class='popup-text'>
+        <h2 style="text-align: center;">The Flame Game!</h2>
+        <p>Click on all the fires in the forest to put them out. You will have 10 seconds to save the forest. Remember, if you fail, you will burn down the forest and lose 20% of your sanity. </p>
+        <button id="start" class="start-button" onclick='startGame()'>Start</button>
+      </div>
+    </div>
     <div id="overlay" class="screen-overlay"></div>
     <div id="appraisal">
         <div id="attack">Attack: <div class="bar"><div id="attack_bar"></div></div></div>
@@ -56,12 +63,12 @@
     <p class="rotated2"> Sanity </p>
     <div class=time>
         <center>
-        <div id="timer">You have <span id="time">00:10</span> to extinguish all the fires!</div>
+        <div id="timer">You have <span id="time">00:07</span> to extinguish all the fires!</div>
         </center>
     </div>
     <center>
         <div class="container">
-            <img id="backImg" src="" style="z-index: -1; width:800px; height:500px; margin:0px;">
+            <img id="backImg" src="https://cdn.discordapp.com/attachments/849316750683406396/853469631259475988/Forest.png" style="z-index: -1; width:800px; height:500px; margin:0px;">
             <div id="69">
                 <div id="fiyr" onclick="disappear()" class="fire">
                     <div class="fire-left">

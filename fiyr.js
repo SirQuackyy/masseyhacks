@@ -117,6 +117,16 @@ function decreaseSanityShop(removeValue) {
   document.getElementById('sanityBar').style.width = 379 - sanity + "px";
 }
 
+popup = document.getElementById("popup");
+openPopup();
+
+function startGame(){
+  var oneMinutes = 7,
+  display = document.querySelector('#time');
+  startTimer(oneMinutes, display);
+  closePopup();
+}
+
 function show_image(src, width, height, alt) {
     var img = document.createElement("img");
     img.src = src;
@@ -181,6 +191,7 @@ disappear = function () {
   document.getElementById("fiyr").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -189,6 +200,7 @@ disappear1 = function () {
   document.getElementById("fiyr1").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -197,6 +209,7 @@ disappear2 = function () {
   document.getElementById("fiyr2").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -205,6 +218,7 @@ disappear3 = function () {
   document.getElementById("fiyr3").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -213,6 +227,7 @@ disappear4 = function () {
   document.getElementById("fiyr4").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -221,6 +236,7 @@ disappear5 = function () {
   document.getElementById("fiyr5").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -229,6 +245,7 @@ disappear6 = function () {
   document.getElementById("fiyr6").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -237,6 +254,7 @@ disappear7 = function () {
   document.getElementById("fiyr7").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -245,6 +263,7 @@ disappear8 = function () {
   document.getElementById("fiyr8").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -253,6 +272,7 @@ disappear9 = function () {
   document.getElementById("fiyr9").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -261,6 +281,7 @@ disappear10 = function () {
   document.getElementById("fiyr10").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -269,6 +290,7 @@ disappear11 = function () {
   document.getElementById("fiyr11").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -277,6 +299,7 @@ disappear12 = function () {
   document.getElementById("fiyr12").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -285,6 +308,7 @@ disappear13 = function () {
   document.getElementById("fiyr13").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -293,6 +317,7 @@ disappear14 = function () {
   document.getElementById("fiyr14").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -301,6 +326,7 @@ disappear15 = function () {
   document.getElementById("fiyr15").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -309,6 +335,7 @@ disappear16 = function () {
   document.getElementById("fiyr16").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -317,6 +344,7 @@ disappear17 = function () {
   document.getElementById("fiyr17").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -325,6 +353,7 @@ disappear18 = function () {
   document.getElementById("fiyr18").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -333,6 +362,7 @@ disappear19 = function () {
   document.getElementById("fiyr19").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -341,6 +371,7 @@ disappear20 = function () {
   document.getElementById("fiyr20").style.display = "none";
   putOut++;
   if(putOut == 21){
+    clearInterval(interval);
     popup = document.getElementById("victory");
     openPopup();
   }
@@ -381,11 +412,6 @@ function resultFunc() {
   popup = document.getElementById("results");
   openPopup();
 }
-window.onload = function () {
-  var oneMinutes = 10,
-  display = document.querySelector('#time');
-  startTimer(oneMinutes, display);
-};
 
 function gameOverFunc() {
   popup = document.getElementById("gameover");

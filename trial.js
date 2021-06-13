@@ -60,7 +60,7 @@ const textNodes = [
   },
   {
     id: 2,
-    text: 'You are bored and turn on the TV. Where you learn about the Austrailian Fires.',
+    text: 'You are bored and turn on the TV. Where you learn about the Australian Fires.',
     options: [
       {
         text: 'You Donate To Help With The Cause!',
@@ -74,7 +74,7 @@ const textNodes = [
   },
   {
     id: 3,
-    text: 'You Enter Your Class to hear your teacher discuss the Austrailian Fires.',
+    text: 'You Enter Your Class to hear your teacher discuss the Australian Fires.',
     options: [
       {
         text: 'You Donate To Help With The Cause!',

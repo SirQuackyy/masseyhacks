@@ -3,17 +3,23 @@
 
   <style>
     .choiceText{
+      margin-top: 10%;
       font-size: 35px;
-      background: -webkit-linear-gradient(#9fe4ff, #ec008c);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
     .title{
-      font-size: 50px;
-      background: -webkit-linear-gradient(#03fc77, #5bb5b4);
+      font-size: 300%;
+      background: -webkit-linear-gradient(#6dcff6, #00e51f);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .year{
+      height: 60%;
+      width: 75%;
+      margin-left: 12%;
+      margin-right: 5%;
+      margin-top:-3%;
+    }
+    
   </style>
 
   <head>
@@ -24,18 +30,40 @@
     </title>
     <link href="game.css" rel="stylesheet" type="text/css"/>
     <h1 class="title"> 2020: The Game </h1>
-    <h2 class="choiceText"> Make a choice and start your adventure. </h2>
+    <img class="year" src= https://cdn.discordapp.com/attachments/849315631648211037/853484895170592808/162355698858711042.png></img>
   </head>
 
   <style>
-    .op{
-      font-size: 35px;
-      color: linear-gradient(to right, aqua ,blue);
+    .btn {
+      font-family: Montserrat, sans-serif;
+      font-size:2em; 
+      padding:10px; 
+      background-color: white; 
+      border: 2px solid #f67eb4;  
+      border-radius: 20px/50px;
+      text-decoration:none; 
+      text-shadow: none;
+      cursor:pointer; 
+      transition:all 0.3s ease-out;
+      width: 50%; 
+      color: #f67eb4;
+      margin-left:2%;
+      margin-top: 1%;
+    }
+    .creds{
+      font-size: 175%;
+      margin-top: 1%;
+      background: -webkit-linear-gradient(#8d5fa1, #434791, #23313b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   </style>
 
-    <button class="option" onclick="sig1()">Do You Wish To Start The Simulation</button>
+    <button class="btn" onclick="sig1()"> Start the simulation? </button>
 
+    <h2 class=creds>
+      By: The Burrito Devs
+    </h2>
 </body>
 <script>
   function sig1() {

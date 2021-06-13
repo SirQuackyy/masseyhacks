@@ -73,6 +73,7 @@ const y = canvas.height / 2
 const player = new Player(x, y, 20, 'white')
 const projectiles = []
 const enemies = []
+const particles = []
 
 function spawnEnemies () {
     setInterval(() => {
@@ -111,6 +112,14 @@ function animate() {
     c.fillStyle = 'rgba(0,0,0,0.1)'
     c.fillRect(0, 0, canvas.width, canvas.height)
     player.draw()
+    particles.forEach((particle, index) => {
+        if (particle.alpha <= 0) {
+            particles.splice(index, 1)
+        } else {
+            particle.update()
+        }
+        particle.update()
+    });
     projectiles.forEach((projectile, index) => {
         projectile.update()
 
@@ -145,11 +154,17 @@ function animate() {
         //when projectiles touch enemy
         if (dist - enemy.radius - projectile.radius < 1) {
 
-            if (true) {}
-            setTimeout(() => {
-                enemies.splice(index, 1)
-                projectiles.splice(projectileIndex, 1)
-            }, 0)
+            if (enemy.radius - 10 > 10) {
+                enemy.radius -= 10
+                setTimeout(() => {
+                    projectiles.splice(projectileIndex,1)
+                }, 0)
+            } else {
+                setTimeout(() => {
+                    enemies.splice(index, 1)
+                    projectiles.splice(projectileIndex,1)
+                }, 0)
+            }
         }
       })
     });
@@ -163,8 +178,8 @@ addEventListener ('click',(event) =>
         )
     
     const velocity = {
-        x: Math.cos(angle) * 4,
-        y: Math.sin(angle) * 4
+        x: Math.cos(angle) * 5,
+        y: Math.sin(angle) * 5
     }
 
     projectiles.push(new Projectile(
