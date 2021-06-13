@@ -1,10 +1,10 @@
 (function($) {
-	var aiMsg = ["Hello There", "Are you forgetting something?", "Did you really think that was everything?", "I'm not done with you just yet", ":)"];
+	var aiMsg = ["You're challenging me?", "Fine, we'll see if you're strong enough to survive", "If you can kill 50 of my viruses, I will let you live this time", "If you get hit by one though...", "Oh, you thought you could use those old stats that you purchased?", "Too bad... My game my rules"];
 
 	$(document).ready(function() {
 		var inputAI = $("#reg_ai");
 		
-		aiMSGLoop(aiMsg, 0, 60, 50, 400);
+		aiMSGLoop(aiMsg, 0, 80, 70, 600);
 		function aiMSGLoop(wordArray, index, writeSpeed, removeSpeed, waitSpeed) {
 			// store new element so AI knows where to write
 			var newElement = $("<h1></h1>").appendTo(inputAI);
@@ -17,18 +17,14 @@
 						newElement
 						.removeText(wordArray[index], removeSpeed)
 						.then(function() {
-						aiMSGLoop(wordArray, index + 1, (1.5)*writeSpeed, (1.5)*removeSpeed, (1.5)*waitSpeed);
+						aiMSGLoop(wordArray, index + 1, writeSpeed, removeSpeed, waitSpeed);
 							
 					});
 						 }, waitSpeed);
 				} else {
-                    document.getElementById("static").style.display = "block";
-                    document.getElementById("reg_ai").style.display = "none";
-                    var audio = new Audio('./sounds/static.mp3');
-                    audio.play();
 					setTimeout(function() {
-                        location.href="/cutscene.html"
-                    }, 700);
+                        location.href="/boss.html"
+                    }, 5000);
 				}
 			});
 		}

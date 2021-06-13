@@ -178,6 +178,29 @@ function closePopup() {
   overlay.style.display = "none";
 }
 
+document.getElementById('backImg').setAttribute('draggable', false);
+document.getElementById('fiyr').setAttribute('draggable', false);
+document.getElementById('fiyr1').setAttribute('draggable', false);
+document.getElementById('fiyr2').setAttribute('draggable', false);
+document.getElementById('fiyr3').setAttribute('draggable', false);
+document.getElementById('fiyr4').setAttribute('draggable', false);
+document.getElementById('fiyr5').setAttribute('draggable', false);
+document.getElementById('fiyr6').setAttribute('draggable', false);
+document.getElementById('fiyr7').setAttribute('draggable', false);
+document.getElementById('fiyr8').setAttribute('draggable', false);
+document.getElementById('fiyr9').setAttribute('draggable', false);
+document.getElementById('fiyr10').setAttribute('draggable', false);
+document.getElementById('fiyr11').setAttribute('draggable', false);
+document.getElementById('fiyr12').setAttribute('draggable', false);
+document.getElementById('fiyr13').setAttribute('draggable', false);
+document.getElementById('fiyr14').setAttribute('draggable', false);
+document.getElementById('fiyr15').setAttribute('draggable', false);
+document.getElementById('fiyr16').setAttribute('draggable', false);
+document.getElementById('fiyr17').setAttribute('draggable', false);
+document.getElementById('fiyr18').setAttribute('draggable', false);
+document.getElementById('fiyr19').setAttribute('draggable', false);
+document.getElementById('fiyr20').setAttribute('draggable', false);
+
 // function that returns a random number between a min and max
 function getRandomNumber(min, max) {
     

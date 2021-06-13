@@ -1,5 +1,8 @@
+var score = 0;
+
 const canvas = document.
     querySelector('canvas')
+canvas.style.zIndex = 0;
 const c = canvas.getContext('2d')
 
 canvas.width = innerWidth
@@ -161,8 +164,13 @@ function animate() {
                 }, 0)
             } else {
                 setTimeout(() => {
+                    score++;
+                    document.getElementById("scoreText").innerHTML = "Score: " + score;
                     enemies.splice(index, 1)
                     projectiles.splice(projectileIndex,1)
+                    if(score >= 50){
+                        window.location.href = "/congrats.html"
+                    }
                 }, 0)
             }
         }

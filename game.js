@@ -369,7 +369,7 @@ const textNodes = [
   {
     id: 12,
     text: 'You\'re at home for the break, but you\'re running out of things to do. Would you like to:',
-    background:'https://i.stack.imgur.com/y9DpT.jpg',
+    background:'https://cdn.discordapp.com/attachments/849316750683406396/853538670081867826/13.png',
     sanity: 0,
     direction: "positive",
     description: "[stable sanity]",
@@ -387,7 +387,7 @@ const textNodes = [
   {
     id: 13,
     text: 'Your friend’s parents are concerned about COVID, and do not want you to go over to their house. Respecting their safety, you go back to your house.',
-    background:'https://i.stack.imgur.com/y9DpT.jpg',
+    background:'https://cdn.discordapp.com/attachments/849316750683406396/853560862488657930/last1.png',
     sanity: 5,
     direction: "negative",
     description: "You are sad that you cannot meet your friend. It's been a long time since you two hung out.",
@@ -401,7 +401,7 @@ const textNodes = [
   {
     id: 14,
     text: 'You decide to binge Netflix shows for hours. Your mom sees you being lazy and tells you to go shopping to stock up for the next few weeks.',
-    background:'https://i.stack.imgur.com/y9DpT.jpg',
+    background:'https://cdn.discordapp.com/attachments/849316750683406396/853547025320771614/last2.png',
     sanity: 5,
     direction: "negative",
     description: "You're disappointed because you can't binge the rest of your Netflix show.",

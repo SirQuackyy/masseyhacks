@@ -26,7 +26,7 @@ body {
 #reg_ai{
 	display:table;
 	width:100%;
-height: 100%;}
+	height: 100%;}
 
 h1{
 	display: table-cell;
@@ -99,6 +99,30 @@ h1{
 	background: currentColor;
 }
 
+.btn {
+	font-family: Montserrat, sans-serif;
+	font-size:1em; 
+	padding:10px; 
+	background-color: rgb(75, 0, 0); 
+	border: 2px solid white;  
+	border-radius: 20px/50px;
+	text-decoration:none; 
+	text-shadow: none;
+	cursor:pointer; 
+	transition:all 0.3s ease-out;
+	width: 100%; 
+	color: white;
+	position:relative;
+	vertical-align: bottom;
+}
+  
+.btn:hover {
+	background-color: black;
+	color:white;
+	text-shadow: none;
+}
+
+
 .progress {
     width: 450px;
     height: 50px;
@@ -170,6 +194,7 @@ h1{
 	transform: translate(-50%, -50%);
 	top: 40%;
 	left: 50%;
+	z-index: 2;
 }
 .glitch, .glow {
 	color: #dfbfbf;
@@ -395,6 +420,7 @@ h1{
 .scanlines {
 	overflow: hidden;
 	mix-blend-mode: difference;
+	z-index: 1;
 }
 .scanlines::before {
 	content: "";
@@ -444,27 +470,4 @@ h1{
 body {
 	margin: 0;
 	overflow: hidden;
-}
-
-.btn {
-	font-family: Montserrat, sans-serif;
-	font-size:1em; 
-	padding:10px; 
-	background-color: rgb(75, 0, 0); 
-	border: 2px solid white;  
-	border-radius: 20px/50px;
-	text-decoration:none; 
-	text-shadow: none;
-	cursor:pointer; 
-	transition:all 0.3s ease-out;
-	width: 100%; 
-	color: white;
-	position:absolute;
-	bottom: -400%;
-}
-  
-.btn:hover {
-	background-color: black;
-	color:white;
-	text-shadow: none;
 }

@@ -8,6 +8,7 @@ h1 {
 }
 
 body {
+  cursor: url('https://cdn.discordapp.com/attachments/849316750683406396/853557990563774524/hose.png') 80 50, auto;
 	font-family: Montserrat, sans-serif;
 	font-size: 16px;
 	letter-spacing: 0.2px;
@@ -16,6 +17,10 @@ body {
     background: #cff1ff;
     color: black;
     margin-right: 5.5%;
+}
+
+body:active {
+  cursor: url('https://cdn.discordapp.com/attachments/849316750683406396/853558926057799700/hose2.png') 80 50, auto;
 }
 
 #appraisal {

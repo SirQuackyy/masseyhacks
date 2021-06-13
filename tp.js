@@ -11,7 +11,7 @@ brick.style.top = Math.floor(screen.height * 0.69 - 170);
 block.style.top = 10;
 block.style.left = Math.floor((Math.random() * (0.6 * screen.width - 55)) + 5);
 gameover.style.top = 150;
-gameover.style.left = 150
+gameover.style.left = 150;
 const overlay = document.getElementById("overlay");
 let popup = document.getElementById("popup");
 const result = document.querySelector(".result");
@@ -232,7 +232,7 @@ function closePopup() {
 }
 
 function continueGame() {
-    window.location.href = `/cutscene.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}`
+    window.location.href = `/precut.html`
 }
 
 var score = 0

@@ -1,6 +1,6 @@
 var interval = 0;
 (function($) {
-	var aiMsg = ["Many months pass and things only get worse.", "Students are now all online doing virtual schooling.", "People lose their jobs due to the now-global pandemic.", "Trump almost starts World War III by killing an Iranian General with a drone.", "Kobe Bryant and his daughter die in a helicopter crash.", "A plane crash in Tehran kills 176 people.", "A white cop kneels on George Floyd’s neck for nine minutes, killing him on camera.", "Wildfires in the west cause the sun to turn red.", "Murder hornets storm the Pacific Northwest.", "Locust swarms are devastating Africa and Asia.", "A dam bursts in Michigan and floods a bunch of towns.", "No HP, No Attack, No Defense, No Sanity."
+	var aiMsg = ["Things only get worse.", "Everyone is forced into remote lifestyle.", "Many are losing jobs due to the now-global pandemic.", "Antarctica sees its highest temperature on record.", "A plane crash in Tehran kills 176 people.", "A horrific, violent incident instigates a revolution against racism.", "Wildfires in the west cause the sun to turn red.", "Murder hornets storm the Pacific Northwest.", "Locust swarms devastate Africa and Asia.", "Places all over the world have faced immense flooding and destruction.", "COVID-19.", "No HP, No Attack, No Defense, No Sanity. 2020 wins."
 ];
 
 	$(document).ready(function() {
@@ -25,7 +25,7 @@ var interval = 0;
 						 }, waitSpeed);
 				} else {
 					clearInterval(interval);
-					document.getElementById('btn').style.visibility="visible";
+					document.getElementById('toBoss').style.visibility="visible";
 
 					document.getElementById('attack_bar').style.color = "#ec008c";
 					document.getElementById('attack_bar').style.width = "0px";
@@ -134,7 +134,11 @@ setInterval(update, 30);
 interval = setInterval(slowUpdate, 50);
 
 function update() {
-	decreaseSanity(0.865);
+	decreaseSanity(0.5);
+	if(sanity <= -72.01){
+		sanity = -72.01
+		document.getElementById('sanityBar').style.width = 379 - sanity + "px";
+	}
 }
 
 function slowUpdate() {
@@ -156,5 +160,7 @@ function slowUpdate() {
 	} else {
 		increaseHP(-1);
 	}
+
+
 }
 

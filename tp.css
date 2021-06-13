@@ -203,42 +203,42 @@ button {
 }
 
 .popup-box,
-.popup-results {
-  background-color: #333;
-  border: 3px solid white;
-  box-shadow: 5px 5px 5px #444;
-  display: none;
-  left: 50%;
-  opacity: 1;
-  overflow: auto;
-  padding: 30px;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-  z-index: 9100;
-}
-
-.popup-text {
-  color: white;
-  font-size: 22px;
-  line-height: 1.5;
-  text-align: center;
-}
-
-.popup-text p {
-  padding: 18px;
-}
-
-.popup-text h3 {
-  font-size: 30px;
-  line-height: 1.4;
-  padding: 14px;
-}
-
-.hidden-assets {
-  display: none;
-}
+  .popup-results {
+    background-color: #333;
+    border: 3px solid white;
+    box-shadow: 5px 5px 5px #444;
+    display: none;
+    left: 50%;
+    opacity: 1;
+    overflow: auto;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    z-index: 9100;
+  }
+  
+  .popup-text {
+    color: white;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  
+  .popup-text p {
+    padding: 18px;
+  }
+  
+  .popup-text h3 {
+    font-size: 30px;
+    line-height: 1.4;
+    padding: 14px;
+  }
+  
+  .hidden-assets {
+    display: none;
+  }
 
 .store {
   height: 150px;

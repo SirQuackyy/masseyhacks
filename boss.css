@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+#scoreText {
+    font-size: large;
+    position: absolute;
+    z-index: 1;
+    background: white;
+}
+
+.container {
+    width: 100px;
+    height: 100px;
+    position: relative;
+  }
+
+.canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.score {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+#scoreText {
+    font-family: Montserrat, sans-serif;
+    margin-left: 10px;
+    background-color:black;
+    color: white;
+}
+
