@@ -262,6 +262,7 @@ function movedown() {
                 clearInterval(id);
                 started = false;
                 document.getElementById("gameover").innerHTML="GAME OVER";
+
                 decreaseSanityShop(37.9)
                 if(sanity < -72.01){
                     gameOver = true;

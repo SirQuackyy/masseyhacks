@@ -1,3 +1,5 @@
+var backgroundMusic = new Audio('./sounds/backgroundStart.m4a');
+backgroundMusic.play();
 (function($) {
 	var aiMsg = ["The End", "Are you forgetting something?", "Did you actually think that was the end?", "I'm not done with you just yet...", ":)"];
 
@@ -21,6 +23,7 @@
 				if(index != aiMsg.length - 1){
 					setTimeout(function(){ 
                         if(index == 0){
+                            backgroundMusic.pause();
                             document.getElementById("static").style.display = "block";
                             document.getElementById("reg_ai").style.display = "none";
                             var audio = new Audio('./sounds/static.mp3');
