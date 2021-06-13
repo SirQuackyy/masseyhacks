@@ -1,5 +1,5 @@
 (function($) {
-	var aiMsg = ["The En-", "Are you forgetting something?", "Did you actually think that was the end?", "I'm not done with you just yet...", ":)"];
+	var aiMsg = ["The End", "Are you forgetting something?", "Did you actually think that was the end?", "I'm not done with you just yet...", ":)"];
 
 	$(document).ready(function() {
 		var inputAI = $("#reg_ai");
@@ -20,13 +20,29 @@
 			newElement.writeText(wordArray[index], writeSpeed).then(function() {
 				if(index != aiMsg.length - 1){
 					setTimeout(function(){ 
-						newElement
-						.removeText(wordArray[index], removeSpeed)
-						.then(function() {
-						aiMSGLoop(wordArray, index + 1, (1.35)*writeSpeed, (1.35)*removeSpeed, (1.35)*waitSpeed);
-							
-					});
-						 }, waitSpeed);
+                        if(index == 0){
+                            document.getElementById("static").style.display = "block";
+                            document.getElementById("reg_ai").style.display = "none";
+                            var audio = new Audio('./sounds/static.mp3');
+                            audio.play();
+                            setTimeout(function() {
+                            audio.pause();
+                            document.getElementById("static").style.display = "none";
+                            document.getElementById("reg_ai").style.display = "table";
+                            }, 700);
+                            newElement
+						        .removeText(wordArray[index], removeSpeed)
+						        .then(function() {
+						            aiMSGLoop(wordArray, index + 1, (1.35)*writeSpeed, (1.35)*removeSpeed, (1.35)*waitSpeed);
+                                });
+                        } else {
+                            newElement
+						        .removeText(wordArray[index], removeSpeed)
+						        .then(function() {
+						            aiMSGLoop(wordArray, index + 1, (1.35)*writeSpeed, (1.35)*removeSpeed, (1.35)*waitSpeed);
+                                });
+                        }
+					}, waitSpeed);
 				} else {
                     document.getElementById("static").style.display = "block";
                     document.getElementById("reg_ai").style.display = "none";
