@@ -18,6 +18,35 @@
      <h1 class=title> 2020: The Game </h1>
    </head>
 <body>
+    <div id="results" class="popup-results">
+        <div class='popup-text'>
+            <h3 class="result"></h3>
+            <h3 class="message">You failed to collect enough toilet paper and got kicked out of the store for littering. Your house was later destroyed in a terrible explosive diarrhea incident and you lose 10% of your sanity.</h3>
+            <button id="restart" class="start-button" onclick='startAgain()'>Play Again?</button>
+        </div>
+    </div>
+    <div id="gameover" class="popup-results">
+        <div class='popup-text'>
+            <h3 class="result">Game Over</h3>
+            <h3 class="message">You lost all your sanity</h3>
+            <button id="restart" class="start-button" onclick='playAgain()'>Restart?</button>
+        </div>
+    </div>
+    <div id="winner" class="popup-results">
+        <div class='popup-text'>
+            <h3 class="result">You picked up 50 rolls of toilet paper!</h3>
+            <h3 class="message">You collected enough toilet paper for the next 2 days and managed to avoid an explosive diarrhea disaster! Congratulations!</h3>
+            <button id="restart" class="start-button" onclick='continueGame()'>Continue</button>
+        </div>
+    </div>
+    <div id="overlay" class="screen-overlay"></div>
+  <div id="popup" class="popup-box">
+    <div class='popup-text'>
+      <h2 style="text-align: center;">Shopping Time!</h2>
+      <p>Use the arrow keys or the A and D keys to control the shopping cart and grab 50 toilet paper for future explosive diarrhea!</p>
+      <button id="start" class="start-button" onclick='start()'>Start</button>
+    </div>
+  </div>
     <h2 id="score" style="text-align:center">Toilet Paper : 0</h2>
     <div id="appraisal">
         <div id="attack">Attack: <div class="bar"><div id="attack_bar"></div></div></div>
@@ -41,9 +70,43 @@
     <div id="gameover"></div>
 </div>
 </center>
-<center>
-    <button id="startButton" onclick='start()'><b>Start Game</b></button>
-</center>
+
+<a class="store" href="#storeScreen"><img src="https://cdn.discordapp.com/attachments/849316750683406396/853201679293612032/Untitled-1.png" style="max-width:100%; max-height:100%; margin-right:50px;"> </a>
+<div id="storeScreen" class="overlay">
+  <div class="popup">
+    <div style="width:200px; height:200px;">
+      <h1 style="margin-left:225%; color:black; margin-top:0px;"> SHOP </h1>  
+      <table style="width:1050px">
+          <tr>
+            <td> <div id="boosters"> <h2> ATK </h2> </div></td>
+            <td> <div id="boosters"> <h2> DEF </h2> </div></td>  
+            <td> <div id="boosters"> <h2> HP </h2> </div> </td>
+          </tr>
+          <tr>
+            <td style="width:33%">
+              <!-- Attack Image -->
+              <img style="max-width:100%; max-height:100%; margin-right:50px;" src="https://cdn.discordapp.com/attachments/849316750683406396/853179405474988052/Brain.png">
+            </td>
+            <td style="width:33%">
+              <!-- Defense Image -->
+              <img style="max-width:100%; max-height:100%; margin-right:50px;" src="https://media.discordapp.net/attachments/849316750683406396/853152468049592320/defense.png?width=704&height=704">
+            </td>
+            <td style="width:33%">
+              <!-- Health Image -->
+              <img style="max-width:100%; max-height:100%; margin-right:50px;" src="https://media.discordapp.net/attachments/849316750683406396/853138933398503434/Icon.png?width=704&height=704">
+            </td>
+          </tr>
+          <tr>
+            <td> <a id="purchase" href="#storeScreen" onclick="increaseAttackStore(1)"> Purchase <b>brain power</b> with 15% sanity. </a> </td> 
+            <td> <a id="purchase" href="#storeScreen" onclick="increaseDefenseStore(1)"> Purchase <b>face mask</b> with 15% sanity. </a> </td>
+            <td> <a id="purchase" href="#storeScreen" onclick="increaseHPStore(1)"> Purchase <b>hand sanitizer</b> with 15% sanity. </a> </td>
+          </tr>
+        </table>
+    </div>
+    <a id = "Not_Link" class="close" href="#">&times;</a>
+  </div>
+</div>
+
 <script src="tp.js"></script>
 </body>
 </html>

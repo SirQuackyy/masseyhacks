@@ -9,11 +9,14 @@ var left = 10;
 brick.style.left = 10;
 brick.style.top = Math.floor(screen.height * 0.69 - 170);
 block.style.top = 10;
-block.style.left = Math.floor((Math.random() * (0.6 * screen.width - 15)) + 5);
+block.style.left = Math.floor((Math.random() * (0.6 * screen.width - 55)) + 5);
 gameover.style.top = 150;
 gameover.style.left = 150
+const overlay = document.getElementById("overlay");
+let popup = document.getElementById("popup");
+const result = document.querySelector(".result");
 
-var speed = 9;
+var speed = 12;
 
 function getParams() {
     var idx = document.URL.indexOf('?');
@@ -22,7 +25,7 @@ function getParams() {
         var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
         for (var i=0; i<pairs.length; i++) {
             nameVal = pairs[i].split('=');
-            params[nameVal[0]] = nameVal[1];
+            params[nameVal[0]] = nameVal[1].split("#")[0];
         }
     }
     return params;
@@ -40,34 +43,92 @@ if(params["hp"]){
     increaseHP(params["hp"])
 }
 if(params["sanity"]){
-    decreaseSanity(params["sanity"] * 3.79)
+    decreaseSanity(params["sanity"])
 }
-
+ 
 var attack = params["atk"];
 function increaseAttack(addValue) {
     attack = addValue;
     document.getElementById('attack_bar').style.color = "#ec008c";
     document.getElementById('attack_bar').style.width = attack * 40 + "px";
 }
-  
+ 
+function increaseAttackStore(addValue) {
+    attack = parseInt(attack) + parseInt(addValue);
+    if(attack > 5){
+        attack = 5;
+        return;
+    }
+    if(attack < 1){
+        attack = 0;
+        return;
+    }
+    if(sanity < -15.16){
+        return;
+    }
+    decreaseSanityShop(67.6515);
+    document.getElementById('attack_bar').style.color = "#ec008c";
+    document.getElementById('attack_bar').style.width = attack * 40 + "px";
+}
+
 var defense = params["def"];
 function increaseDefense(addValue) {
     defense = addValue;
     document.getElementById('defense_bar').style.color = "#0093dd";
     document.getElementById('defense_bar').style.width = defense * 40 + "px";
 }
-  
+ 
+function increaseDefenseStore(addValue) {
+    defense = parseInt(defense) + parseInt(addValue);
+    if(defense > 5){
+        defense = 5;
+        return;
+    }
+    if(defense < 1){
+        defense = 0;
+        return;
+    }
+    if(sanity < -15.16){
+        return;
+    }
+    decreaseSanityShop(67.6515);
+    document.getElementById('defense_bar').style.color = "#0093dd";
+    document.getElementById('defense_bar').style.width = defense * 40 + "px";
+}
+
 var hp = params["hp"];
 function increaseHP(addValue) {
     hp = addValue;
     document.getElementById('hp_bar').style.color = "#00e51f";
     document.getElementById('hp_bar').style.width = hp * 40 + "px";
 }
+console.log(sanity)
+function increaseHPStore(addValue) {
+    hp += addValue;
+    if(hp > 5){
+        hp = 5;
+        return;
+    }
+    if(hp < 1){
+        hp = 0;
+        return;
+    }
+    if(sanity < -15.16){
+        return;
+    }
+    decreaseSanityShop(67.6515);
+    document.getElementById('hp_bar').style.color = "#00e51f";
+    document.getElementById('hp_bar').style.width = hp * 40 + "px";
+}
 
-var sanity = 379;
+var sanity = params["sanity"];
 function decreaseSanity(removeValue) {
     sanity = removeValue;
-    console.log(sanity);
+    document.getElementById('sanityBar').style.width = 379 - sanity + "px";
+}
+
+function decreaseSanityShop(removeValue) {
+    sanity = sanity - removeValue;
     document.getElementById('sanityBar').style.width = 379 - sanity + "px";
 }
 
@@ -106,6 +167,8 @@ document.onkeyup = function() {
     }
 };
 
+openPopup();
+
 //Movement
 var LEFT = false;
 var RIGHT = false;
@@ -127,25 +190,66 @@ var started = false;
 function start() {
     brick.style.align
     started = true;
+    closePopup();
     reset();
     movedown();
+}
+
+var gameOver = false;
+
+function startAgain() {
+    hp = params["hp"];
+    increaseHP(params["hp"]);
+    brick.style.align
+    started = true;
+    closePopup();
+    reset();
+}
+
+function gameOverFunc() {
+    popup = document.getElementById("gameover");
+    openPopup();
+}
+
+function playAgain() {
+    closePopup();
+    window.location.pathname = "/game.html"
+}
+
+function openPopup() {
+    popup.style.display = "block";
+    overlay.style.display = "block";
+    popup.style.opacity = "1";
+    overlay.style.opacity = "1";
+}
+  
+function closePopup() {
+    overlay.style.opacity = "0";
+    popup.style.opacity = "0";
+    popup.style.display = "none";
+    overlay.style.display = "none";
+}
+
+function continueGame() {
+    window.location.href = `/game.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}&pos=15`
 }
 
 var score = 0
 function movedown() {
     var top = 0
     function frame() {
-        top++
+        top += 2
         block.style.top = top + 'px'
         var blockRect = block.getBoundingClientRect(),
             brickRect = brick.getBoundingClientRect()
-        if (block.style.top == brick.style.top && blockRect.right >= brickRect.left && blockRect.left <= brickRect.right) {
+        if (blockRect.top >= brickRect.top && blockRect.right >= brickRect.left && blockRect.left <= brickRect.right) {
             clearInterval(id)
             updateScore()
             block.style.top = 10;
-            block.style.left = Math.floor((Math.random() * (0.6 * screen.width - 15)) + 5);
+            block.style.left = Math.floor((Math.random() * (0.6 * screen.width - 55)) + 5);
             if(score >= 50){
-                
+                popup = document.getElementById("winner");
+                openPopup();
             } else {
                 movedown()
             }
@@ -154,15 +258,24 @@ function movedown() {
             brick.style.left = left + 'px'
             if(hp < 2){
                 increaseHP(hp - 1);
-                document.getElementById("startButton").style.display = 'block';
                 clearInterval(id);
                 started = false;
-                document.getElementById("gameover").innerHTML="GAME OVER";   
+                document.getElementById("gameover").innerHTML="GAME OVER";
+                decreaseSanityShop(37.9)
+                if(sanity < -72.01){
+                    gameOver = true;
+                }
+                if(gameOver) {
+                    return gameOverFunc();
+                }
+                result.innerHTML = "You picked up " + score + " rolls of toilet paper!";
+                popup = document.getElementById("results");
+                openPopup();
             } else {
                 increaseHP(hp - 1);
                 clearInterval(id)
                 block.style.top = 10;
-                block.style.left = Math.floor((Math.random() * (0.6 * screen.width - 15)) + 5);
+                block.style.left = Math.floor((Math.random() * (0.6 * screen.width - 55)) + 5);
                 movedown()
             }
         }
@@ -213,7 +326,6 @@ function handleTouchMove(evt) {
 setInterval (update, 10);
 
 function reset() {
-    document.getElementById("startButton").style.display = 'none';
     document.getElementById("gameover").innerHTML="";
     left = 0;
     score = 0

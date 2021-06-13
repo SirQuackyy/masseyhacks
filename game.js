@@ -1,6 +1,25 @@
+const overlay = document.getElementById("overlay");
+let popup = document.getElementById("popup");
+const result = document.querySelector(".result");
+
+function getParams() {
+  var idx = document.URL.indexOf('?');
+  var params = new Array();
+  if (idx != -1) {
+      var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+      for (var i=0; i<pairs.length; i++) {
+          nameVal = pairs[i].split('=');
+          params[nameVal[0]] = nameVal[1].split("#")[0];
+      }
+  }
+  return params;
+}
+
+var params = getParams();
+
 var attack = 1;
 function increaseAttack(addValue) {
-  attack = attack + addValue;
+  attack = parseInt(attack) + parseInt(addValue);
   if(attack > 5){
     attack = 5;
     return;
@@ -9,8 +28,11 @@ function increaseAttack(addValue) {
     attack = 0;
     return;
   }
+  if(addValue != 0 && sanity < -15.16){
+    return;
+}
   if(addValue != 0){
-    decreaseSanity(56.85);
+    decreaseSanity(67.6515);
   }
   document.getElementById('attack_bar').style.color = "#ec008c";
   document.getElementById('attack_bar').style.width = attack * 40 + "px";
@@ -18,7 +40,7 @@ function increaseAttack(addValue) {
 
 var defense = 1;
 function increaseDefense(addValue) {
-  defense = defense + addValue;
+  defense = parseInt(defense) + parseInt(addValue);
   if(defense > 5){
     defense = 5;
     return;
@@ -27,8 +49,11 @@ function increaseDefense(addValue) {
     defense = 0;
     return;
   }
+  if(addValue != 0 && sanity < -15.16){
+    return;
+}
   if(addValue != 0){
-    decreaseSanity(56.85);
+    decreaseSanity(67.6515);
   }
   document.getElementById('defense_bar').style.color = "#0093dd";
   document.getElementById('defense_bar').style.width = defense * 40 + "px";
@@ -36,7 +61,7 @@ function increaseDefense(addValue) {
 
 var hp = 1;
 function increaseHP(addValue) {
-  hp = hp + addValue;
+  hp = parseInt(hp) + parseInt(addValue);
   if(hp > 5){
     hp = 5;
     return;
@@ -45,8 +70,11 @@ function increaseHP(addValue) {
     hp = 0;
     return;
   }
+  if(addValue != 0 && sanity < -15.16){
+    return;
+  }
   if(addValue != 0){
-    decreaseSanity(56.85);
+    decreaseSanity(67.6515);
   }
   document.getElementById('hp_bar').style.color = "#00e51f";
   document.getElementById('hp_bar').style.width = hp * 40 + "px";
@@ -55,6 +83,9 @@ function increaseHP(addValue) {
 var sanity = 379;
 function decreaseSanity(removeValue) {
     sanity = sanity - removeValue;
+    if(sanity >= 379){
+      sanity = 379;
+    }
     document.getElementById('sanityBar').style.width = 379 - sanity + "px";
 }
 
@@ -62,28 +93,88 @@ increaseAttack(0)
 increaseDefense(0)
 increaseHP(0)
 
-function loseSanity() {
-  var text = document.getElementById("sanityText");
-  if (text.style.display === "none") {
-    text.style.display = "block";
-  } else {
-    text.style.display = "none";
-  }
+if(params["atk"]){
+  var attackVal = params["atk"];
+  attack = params["atk"];
+  document.getElementById('attack_bar').style.color = "#ec008c";
+  document.getElementById('attack_bar').style.width = attackVal * 40 + "px";
+}
+if(params["def"]){
+  defense = params['def'];
+  var defenseVal = params["def"];
+  defense = params["def"];
+  document.getElementById('defense_bar').style.color = "#0093dd";
+  document.getElementById('defense_bar').style.width = defenseVal * 40 + "px";
+}
+if(params["hp"]){
+  hp = params['hp'];
+  var hpVal = params["hp"];
+  hp = params["hp"];
+  document.getElementById('hp_bar').style.color = "#00e51f";
+  document.getElementById('hp_bar').style.width = hpVal * 40 + "px";
+}
+if(params["sanity"]){
+  decreaseSanity(379 - params["sanity"])
 }
 
 const textElement = document.getElementById('text')
+const backImg = document.getElementById('backImg')
 const optionButtonsElement = document.getElementById('option-buttons')
+
+
+document.getElementById("sanityText").style.visibility="hidden";
+document.getElementById("description").style.visibility="hidden";
 
 let state = {}
 
-function startGame() {
+function startGame(node = 1) {
   state = {}
-  showTextNode(1)
+  showTextNode(node)
+}
+
+function openPopup() {
+  popup.style.display = "block";
+  overlay.style.display = "block";
+  popup.style.opacity = "1";
+  overlay.style.opacity = "1";
+}
+
+function closePopup() {
+  overlay.style.opacity = "0";
+  popup.style.opacity = "0";
+  popup.style.display = "none";
+  overlay.style.display = "none";
+}
+
+function playAgain() {
+  closePopup();
+  location.reload();
 }
 
 function showTextNode(textNodeIndex) {
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
+  console.log(textNodes.find(textNode => textNode.id === textNodeIndex))
+  if(textNode.sanity != 0 && textNode.direction === "negative"){
+    decreaseSanity((textNode.sanity/100) * 451.01);
+    document.getElementById("sanityText").innerHTML = "-" + textNode.sanity + " Sanity"
+    document.getElementById("sanityText").style.visibility="visible";
+    document.getElementById("description").innerHTML = textNode.description
+    document.getElementById("description").style.visibility="visible"
+    setTimeout(hideSanity, 4000);
+    if(sanity <= -72.01){
+      popup = document.getElementById("gameover");
+      openPopup();
+    }
+  } else if(textNode.sanity != 0 && textNode.direction === "positive"){
+    decreaseSanity(-((textNode.sanity/100) * 451.01));
+    document.getElementById("sanityText").innerHTML = "+" + textNode.sanity + " Sanity"
+    document.getElementById("sanityText").style.visibility="visible";
+    document.getElementById("description").innerHTML = textNode.description
+    document.getElementById("description").style.visibility="visible"
+    setTimeout(hideSanity, 3000);
+  }
   textElement.innerText = textNode.text
+  backImg.src = textNode.background
   while (optionButtonsElement.firstChild) {
     optionButtonsElement.removeChild(optionButtonsElement.firstChild)
   }
@@ -106,23 +197,32 @@ function showOption(option) {
 function selectOption(option) {
   const nextTextNodeId = option.nextText
   if (nextTextNodeId == 999){
-    window.location.pathname = "/masseyhacks/Fyre.html"
+    window.location.href = `/fiyr.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}`
+  }
+  if (nextTextNodeId == 1000){
+    window.location.href = `/tp.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}`
   }
   if (nextTextNodeId <= 0) {
     return startGame()
   }
-  if(nextTextNodeId == 3){
-    decreaseSanity(18.95);
-
-  }
   state = Object.assign(state, option.setState)
   showTextNode(nextTextNodeId)
+}
+
+function hideSanity(){
+  document.getElementById("sanityText").style.visibility="hidden";
+  document.getElementById("description").style.visibility="hidden";
 }
 
 const textNodes = [
   {
     id: 1,
     text: 'Welcome to the 2020 Simulator! Make a choice and begin your journey.',
+    // Beginning Screen Image
+    background: 'https://cdn.discordapp.com/attachments/849316750683406396/853377816996610079/Split1.png',
+    sanity: 0,
+    direction: "positive",
+    description: '',
     options: [
       {
         text: 'Begin your journey on a lazy day at home.',
@@ -136,127 +236,218 @@ const textNodes = [
   },
   {
     id: 2,
-    text: 'You are bored and turn on the TV. Where you learn about the Austrailian Fires.',
+    text: 'At home, you turn on your television. You come across that is discussing the wildfires currently overtaking Australia. Worried about everything that is happening, you decide to take some kind of action. What do you do?.',
+    // Home Australia Image
+    background: 'https://cdn.discordapp.com/attachments/849316750683406396/853328273483497522/home.png',
+    sanity: 5,
+    direction: "positive",
+    description: 'You finally get a chance to relax and unwind. You\'re able to take a well-deserved break from school.',
     options: [
       {
-        text: 'You Donate To Help With The Cause!',
+        text: 'Raise money to donate to animal shelters and protection services.',
         nextText: 4
       },
       {
-        text: 'You Go On Social Media and try to raise awareness',
+        text: 'Post on social media, hoping to increase awareness about the ongoing situation.',
         nextText: 5
       },
     ]
   },
   {
     id: 3,
-    text: 'You Enter Your Class to hear your teacher discuss the Austrailian Fires.',
+    text: 'At school, your teacher starts discussing the wildfires that are currently overtaking Australia. Worried about everything that is happening, you decide to take some kind of action. What do you do?',
+    // School Australia Image
+    background: 'https://cdn.discordapp.com/attachments/849316750683406396/853340742721994872/School.png',
+    sanity: 5,
+    direction: "negative",
+    description: 'School is boring and stressful as usual. You get very tired after the long day.',
     options: [
       {
-        text: 'You Donate To Help With The Cause!',
+        text: 'Raise money to donate to animal shelters and protection services.',
         nextText: 4
       },
       {
-        text: 'You Go On Social Media and try to raise awareness',
+        text: 'Post on social media, hoping to increase awareness about the ongoing situation.',
         nextText: 5
       },
     ]
   },
   {
     id: 4,
-    text: 'You Fight The Fires Yourself to gain funds.',
+    text: 'Since you do not have any money of your own, you need to now find a new way to contribute money to the animal protection agencies.',
+    // Fight Fires Funds Image
+    background: 'https://cdn.discordapp.com/attachments/849316750683406396/853407192006524988/Donation.png',
+    sanity: 15,
+    direction: "negative",
+    description: "Your realization of you being broke makes your realize the insignificance of your existance.",
     options: [
       {
-        text: 'Mini-Game',
+        text: 'Beat the Mini-Game to Raise Funds',
         nextText: 999
       }
     ]
   },
   {
     id: 5,
-    text: 'You Fight The Fires Yourself to raise awareness.',
+    text: 'It\'s time for you to shine on the internet. You make a post, but you have very few views. You need to find a new way to spread awareness to people through your post.',
+    // Fight Fires Awareness Image
+    background:'https://cdn.discordapp.com/attachments/849316750683406396/853393574178717706/Social_Media.png',
+    sanity: 10,
+    direction: "positive",
+    description: "Someone comments in support of what you said. You two have a conversation and you make a new friend!",
     options: [
       {
-        text: 'Mini-Game',
+        text: 'Beat the Mini-Game to Raise Awareness',
         nextText: 999
       }
     ]
   },
   {
     id: 6,
-    text: 'You wake up well rested and full of energy ready to explore the nearby castle.',
+    text: '\"Breaking News: COVID-19 Outbreaks in Wuhan China\"',
+    background:'https://cdn.discordapp.com/attachments/849316750683406396/853430592880508958/news.png',
+    sanity: 5,
+    direction: "negative",
+    description: "You are worried but not too afraid because you currently do not live anywhere near Wuhan, China.",
     options: [
       {
-        text: 'Explore the castle',
+        text: 'Continue >>',
         nextText: 7
       }
     ]
   },
   {
     id: 7,
-    text: 'While exploring the castle you come across a horrible monster in your path.',
+    text: 'Spring break is approaching fast! What do you plan to do this year?',
+    background:'https://i.stack.imgur.com/y9DpT.jpg',
+    sanity: 15,
+    direction: "positive",
+    description: "You are totally excited for spring break! You can't wait.",
     options: [
       {
-        text: 'Try to run',
+        text: 'Go on a trip.',
         nextText: 8
       },
       {
-        text: 'Attack it with your sword',
-        requiredState: (currentState) => currentState.sword,
-        nextText: 9
-      },
-      {
-        text: 'Hide behind your shield',
-        requiredState: (currentState) => currentState.shield,
-        nextText: 10
-      },
-      {
-        text: 'Throw the blue goo at it',
-        requiredState: (currentState) => currentState.blueGoo,
-        nextText: 11
+        text: 'Stay home & chill.',
+        nextText: 12
       }
     ]
   },
   {
     id: 8,
-    text: 'Your attempts to run are in vain and the monster easily catches.',
+    text: 'What kind of trip are you looking forward to during spring break?',
+    background:'https://i.stack.imgur.com/y9DpT.jpg',
+    sanity: 0,
+    direction: "positive",
+    description: "[stable sanity]",
     options: [
       {
-        text: 'Restart',
-        nextText: -1
-      }
+        text: 'Plan to join your friends on a field trip to LA for three days.',
+        nextText: 9
+      },
+      {
+        text: 'Plan for a family trip to LA for the entire week.',
+        nextText: 10
+      },
     ]
   },
   {
     id: 9,
-    text: 'You foolishly thought this monster could be slain with a single sword.',
+    text: 'A sudden lockdown occurs due to increasing cases of COVID-19 globally. Your school cancels the trip due to district guidelines.',
+    background:'https://cdn.discordapp.com/attachments/849316750683406396/853440183852072960/LA.png',
+    sanity: 15,
+    direction: "negative",
+    description: "Quarantine is here, and you are not excited.",
     options: [
       {
-        text: 'Restart',
-        nextText: -1
+        text: 'Continue >>',
+        nextText: 12
       }
     ]
   },
   {
     id: 10,
-    text: 'The monster laughed as you hid behind your shield and ate you.',
+    text: 'A sudden lockdown occurs due to increasing cases of COVID-19 globally. Do you want to:',
+    background:'https://cdn.discordapp.com/attachments/849316750683406396/853440183852072960/LA.png',
+    sanity: 15,
+    direction: "negative",
+    description: "Quarantine is here, and you are not excited.",
     options: [
       {
-        text: 'Restart',
-        nextText: -1
-      }
+        text: 'Change your plans to drive along a scenic route.',
+        nextText: 11
+      },
+      {
+        text: 'Cancel your plans; stay home & chill.',
+        nextText: 12
+      },
     ]
   },
   {
     id: 11,
-    text: 'You threw your jar of goo at the monster and it exploded. After the dust settled you saw the monster was destroyed. Seeing your victory you decide to claim this castle as your and live out the rest of your days there.',
+    text: 'On your way back from the trip, your parents tell you to help them do some shopping to stock up for the next few weeks.',
+    background:'https://i.stack.imgur.com/y9DpT.jpg',
+    sanity: 5,
+    direction: "positive",
+    description: "The trip is scenic and quite enjoyable, although you didn't get to do more.",
     options: [
       {
-        text: 'Congratulations. Play Again.',
-        nextText: -1
-      }
+        text: 'Beat the mini-game to stock up on Toilet Paper before it runs out!',
+        nextText: 1000
+      },
     ]
-  }
+  },
+  {
+    id: 12,
+    text: 'You\'re at home for the break, but you\'re running out of things to do. Would you like to:',
+    background:'https://i.stack.imgur.com/y9DpT.jpg',
+    sanity: 0,
+    direction: "positive",
+    description: "[stable sanity]",
+    options: [
+      {
+        text: 'Go to your friend\'s house.',
+        nextText: 13
+      },
+      {
+        text: 'Binge Netflix shows for hours.',
+        nextText: 14
+       },
+    ]
+  },
+  {
+    id: 13,
+    text: 'Your friend’s parents are concerned about COVID, and do not want you to go over to their house. Respecting their safety, you go back to your house.',
+    background:'https://i.stack.imgur.com/y9DpT.jpg',
+    sanity: 5,
+    direction: "negative",
+    description: "You are sad that you cannot meet your friend. It's been a long time since you two hung out.",
+    options: [
+      {
+        text: 'Continue >>',
+        nextText: 14
+      },
+    ]
+  },
+  {
+    id: 14,
+    text: 'You decide to binge Netflix shows for hours. Your mom sees you being lazy and tells you to go shopping to stock up for the next few weeks.',
+    background:'https://i.stack.imgur.com/y9DpT.jpg',
+    sanity: 5,
+    direction: "negative",
+    description: "You're disappointed because you can't binge the rest of your Netflix show.",
+    options: [
+      {
+        text: 'Beat the mini-game to stock up on Toilet Paper before it runs out!',
+        nextText: 1000
+      },
+    ]
+  },
 ]
 
-startGame()
+if(params["pos"]){
+  startGame(parseInt(params["pos"]))
+} else {
+  startGame()
+}
