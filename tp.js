@@ -214,7 +214,7 @@ function gameOverFunc() {
 
 function playAgain() {
     closePopup();
-    window.location.pathname = "/game.html"
+    window.location.href = "game.html"
 }
 
 function openPopup() {
