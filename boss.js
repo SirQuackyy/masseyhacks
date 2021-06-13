@@ -148,7 +148,7 @@ function animate() {
     //ending the game
     if (dist - enemy.radius - player.radius < 1) {
             cancelAnimationFrame(animationId)
-            window.location.href = "masseyhacks/lose.html"
+            window.location.href = "lose.html"
         }
 
       projectiles.forEach((projectile, projectileIndex) => {
@@ -170,7 +170,7 @@ function animate() {
                     enemies.splice(index, 1)
                     projectiles.splice(projectileIndex,1)
                     if(score >= 50){
-                        window.location.href = "masseyhacks/congrats.html"
+                        window.location.href = "congrats.html"
                     }
                 }, 0)
             }

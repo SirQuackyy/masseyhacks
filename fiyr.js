@@ -402,7 +402,7 @@ disappear20 = function () {
 
 function victory() {
   closePopup();
-  window.location.href = `masseyhacks/game.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}&pos=6`
+  window.location.href = `game.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}&pos=6`
 }
 
 var gameOver = false;

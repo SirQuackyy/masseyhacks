@@ -232,7 +232,7 @@ function closePopup() {
 }
 
 function continueGame() {
-    window.location.href = `masseyhacks/precut.html`
+    window.location.href = `precut.html`
 }
 
 var score = 0

@@ -27,7 +27,7 @@
                     var audio = new Audio('./sounds/static.mp3');
                     audio.play();
 					setTimeout(function() {
-                        location.href="masseyhacks/cutscene.html"
+                        location.href="cutscene.html"
                     }, 700);
 				}
 			});

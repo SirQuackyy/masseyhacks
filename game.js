@@ -148,7 +148,7 @@ function closePopup() {
 
 function playAgain() {
   closePopup();
-  window.location.href = 'masseyhacks/game.html'
+  window.location.href = 'game.html'
 }
 
 function showTextNode(textNodeIndex) {
@@ -197,13 +197,13 @@ function showOption(option) {
 function selectOption(option) {
   const nextTextNodeId = option.nextText
   if (nextTextNodeId == 666){
-    window.location.href = `masseyhacks/fiyr.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}`
+    window.location.href = `fiyr.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}`
   }
   if (nextTextNodeId == 999){
-    window.location.href = `masseyhacks/fyer.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}`
+    window.location.href = `fyer.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}`
   }
   if (nextTextNodeId == 1000){
-    window.location.href = `masseyhacks/tp.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}`
+    window.location.href = `tp.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}`
   }
   if (nextTextNodeId <= 0) {
     return startGame()
