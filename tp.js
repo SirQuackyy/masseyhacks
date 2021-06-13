@@ -195,8 +195,6 @@ function start() {
     movedown();
 }
 
-var gameOver = false;
-
 function startAgain() {
     hp = params["hp"];
     increaseHP(params["hp"]);
@@ -208,7 +206,7 @@ function startAgain() {
 }
 
 function gameOverFunc() {
-    popup = document.getElementById("gameover");
+    popup = document.getElementById("gameoverPopup");
     openPopup();
 }
 
@@ -265,9 +263,6 @@ function movedown() {
 
                 decreaseSanityShop(37.9)
                 if(sanity < -72.01){
-                    gameOver = true;
-                }
-                if(gameOver) {
                     return gameOverFunc();
                 }
                 result.innerHTML = "You picked up " + score + " rolls of toilet paper!";
