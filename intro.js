@@ -23,7 +23,7 @@
 						 }, waitSpeed);
 				} else {
 					setTimeout(function() {
-                        location.href="/boss.html"
+                        location.href="masseyhacks/boss.html"
                     }, 5000);
 				}
 			});
