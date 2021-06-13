@@ -148,7 +148,7 @@ function closePopup() {
 
 function playAgain() {
   closePopup();
-  location.reload();
+  window.location.href = '/game.html'
 }
 
 function showTextNode(textNodeIndex) {
@@ -196,8 +196,11 @@ function showOption(option) {
 
 function selectOption(option) {
   const nextTextNodeId = option.nextText
-  if (nextTextNodeId == 999){
+  if (nextTextNodeId == 666){
     window.location.href = `/fiyr.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}`
+  }
+  if (nextTextNodeId == 999){
+    window.location.href = `/fyer.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}`
   }
   if (nextTextNodeId == 1000){
     window.location.href = `/tp.html?atk=${attack}&def=${defense}&hp=${hp}&sanity=${sanity}`
@@ -283,7 +286,7 @@ const textNodes = [
     options: [
       {
         text: 'Beat the Mini-Game to Raise Funds',
-        nextText: 999
+        nextText: 666
       }
     ]
   },

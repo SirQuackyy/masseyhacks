@@ -34,13 +34,3 @@ h1{
   animation: caret_typewriter 1s steps(1) infinite;
   content: "";
 }
-@-webkit-keyframes{
-  50% {
-    border-color: transparent;
-  }
-}
-@keyframes caret_typewriter {
-  50% {
-    border-color: transparent;
-  }
-}

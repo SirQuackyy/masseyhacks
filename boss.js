@@ -148,6 +148,7 @@ function animate() {
     //ending the game
     if (dist - enemy.radius - player.radius < 1) {
             cancelAnimationFrame(animationId)
+            window.location.href = "/lose.html"
         }
 
       projectiles.forEach((projectile, projectileIndex) => {

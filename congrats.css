@@ -1,31 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body{
+    background-color:#cff1ff;
+    font-family: Montserrat, sans-serif;
+}
+
 .congrats{
     font-size: 300%;
-    margin-top: 5%;
-    background: -webkit-linear-gradient(#6dcff6, #41c286, #00e51f);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    margin-top: 10%;
+    background-color: #cff1ff;
 }
+
 .playagain{
-    font-size:250%;
-    margin-top: 5%;
+    font-size: 25px;
+    margin-top: 3%;
     background: -webkit-linear-gradient(#d9294f, #d92996, #d9293e);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 }
-.btn{
-    font-size: 200%;
-    border-radius: 32px;
-    background-image:linear-gradient(white, #74cfcd);
-    color: #d65eaa;
-    margin-top: 5%;
 
+.btn{
+    font-family: Montserrat, sans-serif;
+    font-size:2em; 
+    padding:10px; 
+    background-color: white; 
+    border: 2px solid #f67eb4;  
+    border-radius: 20px/50px;
+    text-decoration:none; 
+    text-shadow: none;
+    cursor:pointer; 
+    transition:all 0.3s ease-out;
+    width: 30%; 
+    color: #f67eb4;
+    margin-left:20px;
+    margin-top: 5%;
 }
-body{
-    background-color:#bdfff4;
+
+.btn:hover {
+    background-color: #f2accb;
+    color:white;
+    text-shadow: none;
 }
+
 .creds{
     font-size: 250%;
-    margin-top: 5%;
+    margin-top: 3%;
     background: -webkit-linear-gradient(#8d5fa1, #434791, #23313b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

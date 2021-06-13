@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<style>
+   .title{
+      font-size: 300%;
+      background: -webkit-linear-gradient(#6dcff6, #00e51f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+</style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>
+        2020: The Game
+    </title>
+    <link href="fiyr.css" rel="stylesheet" type="text/css"/>
+    <h1 class=title> 2020: The Game </h1>
+</head>
+<body>
+    <h1 class="flame">
+        Click on the fires to extinguish them.
+    </h1>
+    <div id="results" class="popup-results">
+        <div class='popup-text'>
+            <h3 class="result">Fail</h3>
+            <h3 class="message">You failed to put out the fires and the entire of Australia burnt down, causing you to lose 20% sanity</h3>
+            <button id="restart" class="start-button" onclick='startAgain()'>Play Again?</button>
+        </div>
+    </div>
+    <div id="gameover" class="popup-results">
+        <div class='popup-text'>
+            <h3 class="result">Game Over</h3>
+            <h3 class="message">You lost all your sanity</h3>
+            <button id="restart" class="start-button" onclick='playAgain()'>Restart?</button>
+        </div>
+    </div>
+    <div id="victory" class="popup-results">
+        <div class='popup-text'>
+            <h3 class="result">Congratulations!</h3>
+            <h3 class="message">You managed to put out all the fires in that section of Australia! You've gained 5k views on your post about the fires.</h3>
+            <button id="restart" class="start-button" onclick='victory()'>Continue</button>
+        </div>
+    </div>
+    <div id="popup" class="popup-box">
+      <div class='popup-text'>
+        <h2 style="text-align: center;">The Flame Game!</h2>
+        <p>Click on all the fires in the forest to put them out. You will have 10 seconds to save the forest. Remember, if you fail, you will burn down the forest and lose 20% of your sanity. </p>
+        <button id="start" class="start-button" onclick='startGame()'>Start</button>
+      </div>
+    </div>
+    <div id="overlay" class="screen-overlay"></div>
+    <div id="appraisal">
+        <div id="attack">Attack: <div class="bar"><div id="attack_bar"></div></div></div>
+        <div id="defense">Defense: <div class="bar"><div id="defense_bar"></div></div></div>
+        <div id="hp"> HP: <div class="bar"><div id="hp_bar"></div></div></div>
+        <div id="white_bars"></div> <div id="white_bars2"></div>
+      </div>      
+      <div class="progress2 progress" id="sanity" data-progress-percent="100">
+        <div class="progress-bar progress" id="sanityBar"></div>
+    </div>
+    <p class="rotated"> Your Current </p>
+    <p class="rotated2"> Sanity </p>
+    <div class=time>
+        <center>
+        <div id="timer">You have <span id="time">00:07</span> to extinguish all the fires!</div>
+        </center>
+    </div>
+    <center>
+        <div class="container">
+            <img id="backImg" src="https://cdn.discordapp.com/attachments/849316750683406396/853469631259475988/Forest.png" style="z-index: -1; width:800px; height:500px; margin:0px;">
+            <div id="69">
+                <div id="fiyr" onclick="disappear()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr1"  onclick="disappear1()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr2" onclick="disappear2()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr3" onclick="disappear3()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr4" onclick="disappear4()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr5" onclick="disappear5()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr6" onclick="disappear6()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr7" onclick="disappear7()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr8" onclick="disappear8()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr9" onclick="disappear9()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr10" onclick="disappear10()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr11" onclick="disappear11()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr12" onclick="disappear12()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr13" onclick="disappear13()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr14" onclick="disappear14()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr15" onclick="disappear15()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr16" onclick="disappear16()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr17" onclick="disappear17()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr18" onclick="disappear18()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr19" onclick="disappear19()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+    
+                  <div id="fiyr20" onclick="disappear20()" class="fire">
+                    <div class="fire-left">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-main">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-right">
+                      <div class="main-fire"></div>
+                      <div class="particle-fire"></div>
+                    </div>
+                    <div class="fire-bottom">
+                      <div class="main-fire"></div>
+                    </div>
+                  </div>
+                </div>
+            </center>     
+        </div>
+        <script src="fiyr.js"></script>
+    </body>
+ </HTML>

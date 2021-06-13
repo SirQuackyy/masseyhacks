@@ -1,5 +1,5 @@
 (function($) {
-	var aiMsg = ["Hello There", "Are you forgetting something?", "Did you really think that was everything?", "I'm not done with you just yet", ":)"];
+	var aiMsg = ["Hello There", "Are you forgetting something?", "Did you really think that was everything?", "I'm not done with you just yet...", ":)"];
 
 	$(document).ready(function() {
 		var inputAI = $("#reg_ai");

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body{
+    background-color:#cff1ff;
+    font-family: Montserrat, sans-serif;
+}
+
+.congrats{
+    font-size: 300%;
+    margin-top: -100%;
+    background-color: #cff1ff;
+    z-index: 1;
+    position: relative;
+}
+
+.playagain{
+    font-size: 25px;
+    margin-top: 3%;
+    background: -webkit-linear-gradient(#d9294f, #d92996, #d9293e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    z-index: 1;
+    position: relative;
+}
+
+.btn{
+    font-family: Montserrat, sans-serif;
+    font-size:2em; 
+    padding:10px; 
+    background-color: white; 
+    border: 2px solid #f67eb4;  
+    border-radius: 20px/50px;
+    text-decoration:none; 
+    text-shadow: none;
+    cursor:pointer; 
+    transition:all 0.3s ease-out;
+    width: 30%; 
+    color: #f67eb4;
+    margin-left:20px;
+    margin-top: 5%;
+    z-index: 1;
+    position: relative;
+}
+
+.btn:hover {
+    background-color: #f2accb;
+    color:white;
+    text-shadow: none;
+    z-index: 1;
+    position: relative;
+}
+
+.creds{
+    font-size: 250%;
+    margin-top: 3%;
+    background: -webkit-linear-gradient(#8d5fa1, #434791, #23313b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: 1;
+    position: relative;
+  }

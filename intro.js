@@ -1,5 +1,5 @@
 (function($) {
-	var aiMsg = ["You're challenging me?", "Fine, we'll see if you're strong enough to survive", "If you can kill 50 of my viruses, I will let you live this time", "If you get hit by one though...", "Oh, you thought you could use those old stats that you purchased?", "Too bad... My game my rules"];
+	var aiMsg = ["You're challenging me?", "Fine, we'll see if you're strong enough to survive", "If you can kill 50 of my viruses with your vaccine gun, I will let you live this time", "If you get hit by one though...", "Oh, you thought you could use the attack and defense boosts that you purchased?", "Too bad... My game, my rules.','You will fight alone.'];
 
 	$(document).ready(function() {
 		var inputAI = $("#reg_ai");
