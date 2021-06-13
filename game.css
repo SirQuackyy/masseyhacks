@@ -16,6 +16,7 @@ body {
     background: #cff1ff;
     color: black;
     margin-right: 5.5%;
+    overflow: hidden;
 }
 
 #appraisal {

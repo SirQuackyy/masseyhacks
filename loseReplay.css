@@ -3,6 +3,7 @@
 body{
     background-color:#cff1ff;
     font-family: Montserrat, sans-serif;
+    overflow: hidden;
 }
 
 .congrats{

@@ -2,6 +2,7 @@
 
 body{
     background-color:#cff1ff;
+    overflow: hidden;
     font-family: Montserrat, sans-serif;
 }
 

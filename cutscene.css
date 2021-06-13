@@ -188,6 +188,7 @@ h1{
 	background: black;
 	font-family: "Oswald", sans-serif;
 	font-style: italic;
+	overflow: hidden;
 }
 .container {
 	position: absolute;

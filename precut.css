@@ -18,6 +18,7 @@ div { float: left; width: 100vw; height: 100vh; text-align: center; font-family:
 
 html,
 body {
+    overflow: hidden;
 	width: 100wh;
 	height: 100vh;
 	margin: 0;

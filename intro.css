@@ -10,7 +10,9 @@
 	font-style: normal;
 }
 html,
-body{width: 100wh;
+body{
+overflow: hidden;
+width: 100wh;
 height: 100vh;
 margin: 0;
 overflow: hidden;
