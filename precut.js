@@ -1,5 +1,5 @@
 (function($) {
-	var aiMsg = ["Hello There", "Are you forgetting something?", "Did you really think that was everything?", "I'm not done with you just yet...", ":)"];
+	var aiMsg = ["The En-", "Are you forgetting something?", "Did you actually think that was the end?", "I'm not done with you just yet...", ":)"];
 
 	$(document).ready(function() {
 		var inputAI = $("#reg_ai");
@@ -11,13 +11,19 @@
 			// var rand = Math.round(Math.random() * (wordArray.length-1)+ 0);
 			//my type writer uses object function so no need to code 
 			//long function every time
+            if(index == aiMsg.length - 1 || index == 0){
+                writeSpeed = 400;
+            }
+            if(index == 1){
+                writeSpeed = 81
+            }
 			newElement.writeText(wordArray[index], writeSpeed).then(function() {
 				if(index != aiMsg.length - 1){
 					setTimeout(function(){ 
 						newElement
 						.removeText(wordArray[index], removeSpeed)
 						.then(function() {
-						aiMSGLoop(wordArray, index + 1, (1.5)*writeSpeed, (1.5)*removeSpeed, (1.5)*waitSpeed);
+						aiMSGLoop(wordArray, index + 1, (1.35)*writeSpeed, (1.35)*removeSpeed, (1.35)*waitSpeed);
 							
 					});
 						 }, waitSpeed);
